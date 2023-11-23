@@ -1,17 +1,13 @@
-function solution(k, tangerine) {
-    let answer = 0;
-    let obj = {}; 
-    tangerine.forEach((i) =>{
-        obj[i] = ++obj[i] || 1;  
-    });
-    const sortObj = Object.values(obj).sort((x, y) => y- x);
-    let sum = 0;
-    for(let num of sortObj){
-        ++answer;
-        sum += num;
-        if(k <= sum){
-            break;
-        }
+function solution(k, tangerine){
+    let obj={}
+    tangerine.forEach(x=>{
+        obj[x]=++obj[x]||1
+    })
+    let a=0, sum=0
+    for (let n of Object.values(obj).sort((a,b)=>b-a)){
+        a++
+        sum+=n
+        if(k<=sum) break
     }
-    return answer
+    return a
 }
