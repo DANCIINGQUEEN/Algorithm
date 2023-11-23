@@ -5,6 +5,5 @@ function solution(people, limit) {
         if(people[i]+people[j]<=limit) j--
         cnt++
     }
-    return cnt
-    //d
+    return cnt //d
 }
