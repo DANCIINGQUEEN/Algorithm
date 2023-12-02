@@ -47,3 +47,18 @@ a=i.trim().split` `
 */
 let [n,i]=require('fs').readFileSync("dev/stdin").toString().trim().split`\n`
 ```
+
+## 입력값이 행렬의 크기이고 n줄에 걸쳐서 행렬값이 주어질 때
+```jsx
+/*
+3 3
+1 1 1
+2 2 2s
+0 1 0
+3 3 3
+4 4 4
+5 5 100
+*/
+let [[n, m], ...inputs] = fs.readFileSync(0).toString().trim().split("\n")
+  .map((t) => t.split(" ").map(x=>+x));
+```
