@@ -45,5 +45,5 @@ a=i.trim().split` `
 20
 30
 */
-let [n,i]=require('fs').readFileSync("dev/stdin").toString().trim().split` `
+let [n,i]=require('fs').readFileSync("dev/stdin").toString().trim().split`\n`
 ```
