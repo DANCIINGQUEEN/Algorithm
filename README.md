@@ -53,7 +53,7 @@ let [n,i]=require('fs').readFileSync("dev/stdin").toString().trim().split`\n`
 /*
 3 3
 1 1 1
-2 2 2s
+2 2 2
 0 1 0
 3 3 3
 4 4 4
