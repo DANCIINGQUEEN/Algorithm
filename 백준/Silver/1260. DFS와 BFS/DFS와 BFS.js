@@ -1,6 +1,6 @@
 const fs = require("fs");
 const filePath = process.platform === "linux" ? "/dev/stdin" : "input.txt";
-let input = fs.readFileSync(filePath).toString().trim().split("\n");
+let input = fs.readFileSync('dev/stdin').toString().trim().split("\n");
 
 let [n, m, v] = input[0].split(" ").map(Number);
 let graph = new Array(n + 1);
