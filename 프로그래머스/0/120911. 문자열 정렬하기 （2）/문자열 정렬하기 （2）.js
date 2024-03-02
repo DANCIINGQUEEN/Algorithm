@@ -1,3 +1,3 @@
 function solution(m) {
-    return [...m].map(x=>x.toLowerCase()).sort().join``
+    return [...m.toLowerCase()].sort().join``
 }
