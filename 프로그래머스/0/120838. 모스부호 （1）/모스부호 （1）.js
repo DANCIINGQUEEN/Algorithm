@@ -6,5 +6,6 @@ function solution(l) {
     '...':'s','-':'t','..-':'u','...-':'v','.--':'w','-..-':'x',
     '-.--':'y','--..':'z'
     }
-    return l.split` `.map(x=>m[x]).join``
+    //return l.split` `.map(x=>m[x]).join``
+    return l.split` `.reduce((a,c)=>a+m[c],'')
 }
