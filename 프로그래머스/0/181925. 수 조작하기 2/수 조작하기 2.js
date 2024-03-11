@@ -7,7 +7,4 @@ function solution(n) {
         if(n[i+1]-n[i]===-10) a.push('a')
     }
     return a.join``
-    // return n.map(x=>{
-    //     if(x===0) return w
-    // })
 }
