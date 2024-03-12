@@ -1,8 +1,5 @@
 function solution(m, n) {
-    let a=m.split``
     let b=[]
-    while(a.length>0){
-        b.push(a.splice(0,n).join``)
-    }
+    for(let i=0;i<m.length;i+=n) b.push(m.slice(i,i+n))
     return b
 }
