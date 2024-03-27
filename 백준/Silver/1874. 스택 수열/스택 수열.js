@@ -1,18 +1,17 @@
 let [n,...l]=require('fs').readFileSync('dev/stdin').toString().trim().split`\n`.map(e=>+e)
 function s(n,l){
     let t=[]
-    let a=''
+    let o=[]
     let c=1
-    for(let i=0;i<n;i++){
-        let b=l.shift()
+    for (let i=0;i<n;i++){
+        let b=l[i]
         while(c<=b){
             t.push(c++)
-            a+='+ '
+            o.push('+')
         }
-        let p=t.pop()
-        if(p!==b) return 'NO'
-        a+='- '
+        if (t.pop()!==b)return 'NO'
+        o.push('-')
     }
-    return a.trim()
+    return o.join` `.trim()
 }
 console.log(s(n,l))
