@@ -1,21 +1,35 @@
-let [n, ...p] = require("fs").readFileSync("dev/stdin").toString().trim().split`\n`
-for (let i = 0; i < n; i++) {
-    let [N, Q] = p.shift().split` `.map(e=>+e)
-    let M = p.shift().split` `.map((e, i) => [i, +e])
-    let c=1
-    let t=M[Q]
-    while(M.length){
-        let max = M[0][1]
-        M.forEach(e=>{
-            if(e[1]>max) max=e[1]
-        })
-        let s=M.shift()
-        if(s[1]!==max) {
-            M.push(s)
-            continue
-        }
-        else if(t[0]===s[0]) break
-        c++
+const fs = require('fs');
+const file = process.platform === 'linux' ? '/dev/stdin' : './input.txt';
+const input = fs.readFileSync(file).toString().trim().split('\n');
+
+let [n, ...arr] = input;
+arr = arr.map((item) => item.split(' ').map(Number));
+let answer = '';
+
+for (let i = 0; i < arr.length; i += 2) {
+  let count = 0;
+  const priorities = arr[i + 1];
+  let location = arr[i][1];
+
+  while (true) {
+    const max = Math.max(...priorities);
+    const number = priorities.shift();
+    if (number === max) {
+      count++;
+      if (location === 0) {
+        answer += count + '\n';
+        break;
+      }
+    } else {
+      priorities.push(number);
     }
-    console.log(c)
+
+    if (location === 0) {
+      location = priorities.length - 1;
+    } else {
+      location--;
+    }
+  }
 }
+
+console.log(answer.trim());
