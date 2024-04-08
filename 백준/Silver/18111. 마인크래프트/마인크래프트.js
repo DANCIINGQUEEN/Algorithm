@@ -1,32 +1,24 @@
-const fs = require("fs");
-const filePath = process.platform === "linux" ? "/dev/stdin" : "input.txt";
-const input = fs.readFileSync(filePath).toString().trim().split("\n");
-
-const [n, m, b] = input.shift().split(" ").map(Number);
-const arr = input.map(i => i.split(" ").map(Number));
-
-let ansTime = Infinity;
-let ansHeight = -1;
-
+let input = require("fs").readFileSync("dev/stdin").toString().trim().split`\n`
+let [n, m, b] = input.shift().split` `.map(Number)
+let a = input.map((x) => x.split` `.map(Number))
+let t = Infinity
+let r = -1
 for (let h = 0; h <= 256; h++) {
-  let inventory = 0;
-  let removeCnt = 0;
-
+  let v = 0
+  let c = 0
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
-      let curh = arr[i][j] - h;
-      if (curh < 0) inventory -= curh;
-      else removeCnt += curh;
+      let curH = a[i][j] - h
+      if (curH < 0) v -= curH
+      else c += curH
     }
   }
-
-  if (removeCnt + b >= inventory) {
-    let time = 2 * removeCnt + inventory;
-    if (ansTime >= time) {
-      ansTime = time;
-      ansHeight = h;
+  if (c + b >= v) {
+    let e = 2 * c + v
+    if (t >= e) {
+      t = e
+      r = h
     }
   }
 }
-
-console.log(ansTime, ansHeight);
+console.log(t, r)
